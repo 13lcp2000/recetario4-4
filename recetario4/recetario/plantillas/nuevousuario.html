@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block titulo %}Nuevo usuario{% endblock %}
+
+{% block encabezado %}
+	<h1>Registra un nuevo usuario</h1>
+{% endblock %}
+
+{% block contenido %}
+<section>
+	<center>
+		<form id='formulario' method='post' action=''>{% csrf_token %}
+			<table>{{formulario}}</table>
+			<input type='submit' value='Registrar' class='btn btn-success'/>
+		</form>
+	</center>
+</section>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#id_username").addClass("form-control");
+		$("#id_password1").addClass("form-control");
+		$("#id_password2").addClass("form-control");
+	});
+</script>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+  <meta charset='utf-8'>
+  <title>Recetario para NuevosMedios - {% block titulo %}{% endblock %}</title>
+  <link rel='stylesheet' href='{{STATIC_URL}}css/base.css'>
+  <link rel='stylesheet' href='{{STATIC_URL}}css/bootstrap.min.css'>
+  <link rel='shortcut icon' href='{{STATIC_URL}}img/icono.png'>
+  {% block style_css %}{% endblock %}
+  <script src='{{STATIC_URL}}js/jquery-1.7.2.min.js'></script>
+  <script src='{{STATIC_URL}}js/demo.js'></script>
+</head>
+<body>
+  <header>
+    <center><p>Recetario para NuevosMedios</p></center>
+	{% block encabezado %}{% endblock %}
+	   <div class="text_line">
+	     <nav>
+		  <ul class='nav nav-pills' id='menu'>
+		  <li><a href='/'>Inicio</a></li>
+		  <li><a href='/usuario/nuevo'>Registrate</a>
+		  <li><a href='/bebidas'>Bebidas</a></li>
+		  <li><a href='/recetas'>Recetas</a></li>
+		  <li><a href='/postres'>Postres</a></li>
+		  <li><a href='/comenta'>Comenta</a></li>
+		  <li><a href='/contacto'>Contactanos</a></li>
+		  <li><a href='/usuarios'>Usuarios registrados</a></li>
+
+          <li><a href="contact.html">Contact</a></li>
+          <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+          	<ul class="dropdown-menu">
+	          <li><a href="portfolio-1-col.html">1 Column Portfolio</a></li>
+	          <li><a href="portfolio-2-col.html">2 Column Portfolio</a></li>
+	          <li><a href="portfolio-3-col.html">3 Column Portfolio</a></li>
+	          <li><a href="portfolio-4-col.html">4 Column Portfolio</a></li>
+	          <li><a href="portfolio-item.html">Single Portfolio Item</a></li>
+		   </ul>
+		   <ul>
+	   </div>
+	</nav>
+	<hr>
+  </header>
+
+  <section class='container'>
+	{% block contenido %}{% endblock %}
+  </section>
+
+  <footer>
+	<p>Leonardo Collazos Paez, Prueba Tecnica Python 2.7.6 - Django 1.6.5</p>
+  </footer>
+
+</body>
+</html>

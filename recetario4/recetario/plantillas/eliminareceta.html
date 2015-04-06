@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Desea Eliminar la receta: {{dato.titulo}} {% endblock %}
+
+{% block encabezado %} 
+  <h1>{{dato.titulo|title}}</h1>
+{% endblock %}
+
+{% block contenido %}
+	<form method="post">{% csrf_token %}
+    	Realmente quiere borrar la receta? "{{ dato.titulo }}" ?
+    	<input type="submit" value="Submit" />
+	</form>
+{% endblock %}

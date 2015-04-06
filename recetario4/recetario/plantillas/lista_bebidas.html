@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% comment %} Aqui van comentarios {% endcomment %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block encabezado %} 
+	<h1>Lista Bebidas ;) </h1>
+{% endblock %}
+
+{% block contenido %}
+  <p>
+	  Actualmente tenemos registradas: 
+     {% with total=bebidas.count %}
+		{{total}} bebida{{total|pluralize}}
+	 {% endwith %}
+  </p>
+	<ul>		
+	  {% for dato in bebidas %}
+	  <li class="{% cycle 'impar' 'par' %}">{{dato.nombre|title}}</li>
+	  {% empty %}
+	  <li>No hay bebidas registradas aún.</li>
+	  {% endfor %}
+	</ul>
+{% endblock %}

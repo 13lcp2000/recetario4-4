@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Bebidas registradas {% endblock %}
+
+{% block encabezado %}
+<h1>Nuestras Bebidas</h1>
+{% endblock %}
+
+{% block css %}
+<style>img { width:100px; }</style>
+{%endblock%}
+
+{% block contenido %}
+<section>
+	<a href='/bebida/nueva'>Agregar una bebida</a>
+	<h1>Nuestras Bebidas</h1>
+	<ul>
+		{% for dato in datos %}
+			<li>
+				<a href='/bebida/{{dato.id}}'>{{dato.titulo}}</a>
+				<img src='{{MEDIA_URL}}{{dato.imagen}}'>
+				<p>'{{dato.id}}'</p>
+			</li>
+		{% empty %}
+			<li>
+				<strong>
+					<div class="alert alert-warning" role="alert">No hay bebidas registradas aún.</div>
+				</strong>
+			</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endblock %}
+
+<!--
+===========================================================
+{% comment %}
+{% extends 'base.html' %}
+{% block titulo %} Recetas registradas {% endblock %}
+
+{% block css %}
+  <style>
+	img { width:100px; }
+  </style>
+{% endblock %}
+
+
+{% block encabezado %}
+  <h1>Nuestras bebidas</h1>
+{% endblock %}
+
+{% block contenido %}
+<a href="/bebida/nueva">Agregar una bebida</a>
+<ul>
+	{% for dato in datos %}
+	<li>
+		<a href='{% url principal.views.detalle_bebida dato.id %}'>{{dato.nombre}}</a>
+		<p>'{{dato.id}}'</p>
+	</li>
+	{% empty %}
+	<li>Aún no hay recetas registradas</li>
+	{% endfor %}
+</ul>
+
+<section>
+	<h1>Nuestras Bebidas</h1>
+	<ul>
+		{% for dato in datos %}
+		<li>
+			<a href='/receta/{{dato.id}}'>{{dato.titulo}}</a>
+			<img src='{{MEDIA_URL}}{{dato.imagen}}'>
+		</li>
+		{% empty %}
+		<li>Aún no hay recetas registradas</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endblock %}
+{% endcomment %}
+-->

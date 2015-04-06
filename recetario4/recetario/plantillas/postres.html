@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Postres registrados {% endblock %}
+
+{% block encabezado %}
+<h1>Nuestros Postres</h1>
+{% endblock %}
+
+{% block css %}
+<style>img { width:100px; }</style>
+{%endblock%}
+
+{% block contenido %}
+<section>
+	<a href='/postre/nuevo'>Agregar un postre</a>
+	<h1>Nuestros Postres</h1>
+	<ul>
+		{% for dato in datos %}
+			<li>
+				<a href='/postre/{{dato.id}}'>{{dato.titulo}}</a>
+				<img src='{{MEDIA_URL}}{{dato.imagen}}'>
+				<p>'{{dato.id}}'</p>
+			</li>
+		{% empty %}
+			<li>
+				<strong>
+					<div class="alert alert-warning" role="alert">No hay postres registrados aún.</div>
+				</strong>
+			</li>
+		{% endfor %}
+	</ul>
+</section>
+{% endblock %}

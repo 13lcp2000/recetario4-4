@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block titulo %} {{postre.titulo}} {% endblock %}
+
+{% block encabezado %} 
+  <h1>{{postre.titulo|title}}</h1>
+{% endblock %}
+
+{% block contenido %}
+
+	<a href='/postre/nuevo'>Agregar un postre</a>
+	<!--a href="{#% url 'new_P' postre.id %}" ></>
+	<a href="{#% url 'borrar_P' %}" ></-->
+
+
+	<div id='ingredientes'>
+		<h2>Ingredientes</h2>
+		<p>{{postre.ingredientes}}</p>
+	</div>
+	<div id='preparacion'>
+		<h2>Preparación</h2>
+		<p>{{postre.preparacion}}</p>
+	</div>
+	<div id='referencia'>
+		<img src='{{MEDIA_URL}}{{postre.imagen}}'>
+	</div>
+	<div id='comentarios'>
+		<h2>Comentarios</h2>
+			{% for item in comentarios %}
+				<p>{{item.texto}}</p>
+			{% empty %}
+				<p>Sin comentarios registrados</p>
+			{% endfor %}
+	</div>
+	<footer>
+	  <p>Registrado {{ postre.tiempo_registro|date:'SHORT_DATETIME_FORMAT' }} por {{postre.usuario}}</p>
+	</footer>
+{% endblock %}

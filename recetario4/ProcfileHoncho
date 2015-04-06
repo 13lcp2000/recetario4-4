@@ -1,0 +1,8 @@
+ccb_worker: python manage.py tenant_command celeryd --schema=ccb
+calidigital_worker: python manage.py tenant_command celeryd --schema=calidigital
+fedut_worker: python manage.py tenant_command celeryd --schema=fedut
+nicepeoplegroup_worker: python manage.py tenant_command celeryd --schema=nicepeoplegroup
+impormedical_worker: python manage.py tenant_command celeryd --schema=impormedical
+#migraciontq_worker: python manage.py tenant_command celeryd --schema=migraciontq
+directtv_worker: python manage.py tenant_command celeryd --schema=directtv
+#scheduler: python manage.py tenant_command celerybeat --schema=calidigital

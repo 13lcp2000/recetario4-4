@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block titulo %} {{bebida.nombre}} {% endblock %}
+
+{% block encabezado %} 
+  <h1>{{bebida.nombre|title}}</h1>
+{% endblock %}
+
+{% block contenido %}
+
+	
+	<a href='/bebidas/nueva'>Agregar una receta</a>
+	<a href='{% url "bebida_name" bebida.id %}'>Editar receta</a>
+	<a href='{% url "borrar_B" bebida.id %}'>Eliminar receta</a>
+
+
+	<div id='ingredientes'>
+		<h2>Ingredientes</h2>
+		<p>{{bebida.ingredientes}}</p>
+	</div>
+	<div id='preparacion'>
+		<h2>Preparación</h2>
+		<p>{{bebida.preparacion}}</p>
+	</div>
+	<div id='referencia'>
+		<p>{{bebida.id}}</p>
+    </div>
+{% endblock %}
